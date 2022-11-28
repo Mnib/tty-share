@@ -8,8 +8,8 @@ all: assets_bundle.go
 rebuild: clean all
 
 assets_bundle.go: $(TTY_SERVER_ASSETS)
-	go install github.com/go-bindata/go-bindata/...
-	go-bindata --prefix frontend/public/ -pkg server -o $@ frontend/public/*
+	go get -u github.com/go-bindata/go-bindata/...
+	~/src/go/bin/go-bindata --prefix frontend/public/ -pkg server -o $@ frontend/public/*
 
 frontend: cleanfront frontend/public/index.html assets_bundle.go
 

@@ -1,4 +1,3 @@
-
 server/frontend/node_modules
 server/frontend/public
 
@@ -7,4 +6,4 @@ out
 playground/
 .vscode/
 tmp-*
-tty-share
+/tty-share
