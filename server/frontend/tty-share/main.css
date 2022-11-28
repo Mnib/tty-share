@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -11,3 +12,6 @@ html, body {
     height: 100%;
 }
 
+.xterm-fg-12 {
+    color: #eee;
+}
