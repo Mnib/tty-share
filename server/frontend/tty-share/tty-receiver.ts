@@ -1,4 +1,4 @@
-import { Terminal, IEvent, IDisposable } from 'xterm';
+import { Terminal } from 'xterm';
 
 import base64 from './base64';
 
@@ -16,13 +16,15 @@ class TTYReceiver {
 
         // TODO: expose some of these options in the UI
         this.xterminal = new Terminal({
-            cursorBlink: true,
+            cursorBlink: false,
             macOptionIsMeta: true,
             scrollback: 1000,
-            fontSize: 12,
+            fontSize: 14,
             letterSpacing: 0,
             disableStdin: true,
             theme: {
+                background: '#181616',
+                foreground: '#d1d1d1',
                 black: '#272822',
                 brightBlack: '#272822',
                 red: '#f92672',
@@ -46,7 +48,7 @@ class TTYReceiver {
         this.containerElement = container;
         this.xterminal.open(container);
 
-        connection.onclose = (evt: CloseEvent) => {
+        connection.onclose = (_: CloseEvent) => {
             this.xterminal.blur();
             this.xterminal.options.cursorBlink = false;
             this.xterminal.clear();
